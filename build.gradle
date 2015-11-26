@@ -32,15 +32,17 @@ repositories {
     maven { url "http://files.couchbase.com/maven2/" }
     maven { url "https://repo.spring.io/snapshot" }
     maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter",
+    compile "org.springframework.boot:spring-boot-starter:${springBootVersion}",
             "com.couchbase.client:java-client:2.2.0-dp2",
-            "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.5.3"
-            "org.springframework.boot:spring-boot-configuration-processor"
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
+            "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.5.3",
+            "org.mongodb:mongodb-driver-rx:1.1.0",
+            "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") 
 }
 
 
