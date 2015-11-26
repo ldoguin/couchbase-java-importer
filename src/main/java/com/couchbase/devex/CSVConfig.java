@@ -43,8 +43,8 @@ import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
 /**
- * This is a CSV importer configuration. To select it, set the
- * 'choosenImporter' property to 'CSV'. 
+ * This is a CSV importer configuration. To select it, set the 'choosenImporter'
+ * property to 'CSV'.
  * 
  * @author ldoguin
  */
@@ -60,34 +60,54 @@ public class CSVConfig implements ImporterConfig {
 				SimpleDateFormat sdf) {
 			switch (this) {
 			case STRING:
-				node.put(name, value);
+				if (value == null || "".equals(value)) {
+					node.put(name, "");
+				} else {
+					node.put(name, value);
+				}
 				break;
 
 			case LONG:
-				long l = Long.valueOf(value.replaceAll("\\u00A0", ""));
-				node.put(name, l);
+				if (value == null || "".equals(value)) {
+					node.put(name, 0);
+				} else {
+					long l = Long.valueOf(value.replaceAll("\\u00A0", ""));
+					node.put(name, l);
+				}
 				break;
 
 			case DOUBLE:
-				value = value.replaceAll("\\u00A0", "");
-				double d = Double.valueOf(value);
-				node.put(name, d);
+				if (value == null || "".equals(value)) {
+					node.put(name, 0);
+				} else {
+					value = value.replaceAll("\\u00A0", "");
+					double d = Double.valueOf(value);
+					node.put(name, d);
+				}
 				break;
 
 			case BOOLEAN:
-				boolean b = Boolean.valueOf(value);
-				node.put(name, b);
+				if (value == null || "".equals(value)) {
+					node.put(name, false);
+				} else {
+					boolean b = Boolean.valueOf(value);
+					node.put(name, b);
+				}
 				break;
 
 			case DATE:
-				Calendar c = Calendar.getInstance();
-				try {
-					c.setTime(sdf.parse(value));
-				} catch (ParseException e) {
-					throw new RuntimeException(e);
+				if (value == null || "".equals(value)) {
+					node.put(name, 0);
+				} else {
+					Calendar c = Calendar.getInstance();
+					try {
+						c.setTime(sdf.parse(value));
+					} catch (ParseException e) {
+						throw new RuntimeException(e);
+					}
+					long dl = c.getTimeInMillis();
+					node.put(name, dl);
 				}
-				long dl = c.getTimeInMillis();
-				node.put(name, dl);
 				break;
 			}
 
