@@ -1,0 +1,26 @@
+# Hostnames, comma separated list of Couchbase node IP or hostname
+hostnames: localhost,127.0.0.1
+# Buket name
+bucket: default
+# Bucket password
+password:
+# Log to write succesfully imported keys
+successLogFilename: succes.out
+# Log to write unsuccesfully imported keys
+errorLogFilename: error.out
+# Default RequestCancelledException delay in milliseconds and maximum number of retries
+requestCancelledExceptionDelay: 31000
+requestCancelledExceptionRetries: 100
+# Default TemporaryFailureException delay in milliseconds and maximum number of retries
+temporaryFailureExceptionDelay: 100
+temporaryFailureExceptionRetries: 100
+# Default upsert timeout in milliseconds
+importTimeout: 500
+# Choose between CSV, COUCHDB, MONGODB, JSON_GENERATOR
+choosenImporter: MONGODB
+mongodb:
+  connectionString: "mongodb://127.0.0.1:27017/"
+  dbName: "test"
+  collectionName: "restaurants"
+  typeField: "type"
+  type: "restaurant"
