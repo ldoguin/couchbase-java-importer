@@ -1,0 +1,57 @@
+# Hostnames, comma separated list of Couchbase node IP or hostname
+hostnames: localhost,127.0.0.1
+# Buket name
+bucket: default
+# Bucket password
+password:
+# Log to write succesfully imported keys
+successLogFilename: succes.out
+# Log to write unsuccesfully imported keys
+errorLogFilename: error.out
+# Default RequestCancelledException delay in milliseconds and maximum number of retries
+requestCancelledExceptionDelay: 31000
+requestCancelledExceptionRetries: 100
+# Default TemporaryFailureException delay in milliseconds and maximum number of retries
+temporaryFailureExceptionDelay: 100
+temporaryFailureExceptionRetries: 100
+# Default upsert timeout in milliseconds
+importTimeout: 500
+# Choose between CSV, COUCHDB, JSON_GENERATOR
+choosenImporter: CSV
+csv:
+  # CSV Separating char for rows
+  columnSeparator: ';'
+  # CSV quotes
+  quoteChar: ''
+  # Path to the CSV file to import
+  csvFilePath: /home/couchbase/csvimporter/advocates.csv
+  # Skip the first line of the CSV for field names
+  skipFirstLineForNames: true
+  # Any format usable by the Java SimpleDateFormat Class
+  dateFormat: EEE MMM dd HH:mm:ss z yyyy
+  # Language tag used by Java's Locale class
+  languageTag: FR_FR
+  # Number of columns to import
+  totalcolumns: 10
+  # Column index to use the column value as id
+  keyColumIndex: 0
+  # The value of this field will be added as key prefix
+  keyPrefix: "advocate::"
+  #Give the type of the columns, could be String, Long, Double, Boolean, Date. Must be the exact same size as the number of columns in your file
+  columType:
+     - STRING
+     - STRING
+     - STRING
+     - STRING
+     - STRING
+     - DATE
+     - LONG
+  # Choose the name of the fields for each column, mandatory if skipFirstLineForNames is set to true.
+  columName:
+     - id
+     - type
+     - firstname
+     - lastname
+     - location
+     - creationDate
+     - count

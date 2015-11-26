@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io
 
+### Gradle ###
+build/
+
 ### Maven ###
 target/
 pom.xml.tag

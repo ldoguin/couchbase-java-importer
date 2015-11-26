@@ -16,16 +16,8 @@ temporaryFailureExceptionDelay: 100
 temporaryFailureExceptionRetries: 100
 # Default upsert timeout in milliseconds
 importTimeout: 500
-# Choose between CSV, COUCHDB, MONGODB, JSON_GENERATOR
-choosenImporter: MONGODB
-mongodb:
-  # Give a valid connection string to connect to a MongoDB instance
-  connectionString: "mongodb://127.0.0.1:27017/"
-  # Name of the MondoDB database to connect to
-  dbName: "test"
-  # Name of the collection to import
-  collectionName: "restaurants"
-  # Couchbase does not have collection, we usually use a type field. As there could already be a type field in Mongo, you can specify another fieldName to be used as type
-  typeField: "type"
-  # type of the documents that will be imported
-  type: "restaurant"
+# Choose between CSV, COUCHDB, JSON_GENERATOR
+choosenImporter: COUCHDB
+couchdb:
+  # Download URL 
+  downloadURL: http://127.0.0.1:5984/database_export/_all_docs?include_docs=true
