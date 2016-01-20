@@ -50,8 +50,7 @@ public class CouchDBConfig implements ImporterConfig {
 
 	public static final String OFFSET_PROPERTY = "offset";
 
-	@Value("${couchdb.downloadURL:http://127.0.0.1:5984/database_export/_all_docs?include_docs=true}")
-	String couchDBRequest;
+	private String downloadURL = "http://127.0.0.1:5984/database_export/_all_docs?include_docs=true";
 
 	ObjectMapper om = new ObjectMapper();
 
@@ -59,7 +58,7 @@ public class CouchDBConfig implements ImporterConfig {
 	public Observable<Document> startImport() {
 		BufferedReader inp2 = null;
 		try {
-			URL url = new URL(couchDBRequest);
+			URL url = new URL(downloadURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
