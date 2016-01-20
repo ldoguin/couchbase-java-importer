@@ -43,7 +43,8 @@ dependencies {
             "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.5.3",
             "org.mongodb:mongodb-driver-rx:1.1.0",
             "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}",
-            "org.postgresql:postgresql:9.4-1206-jdbc4"
+            "org.postgresql:postgresql:9.4-1206-jdbc4",
+            'mysql:mysql-connector-java:5.1.38'
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") 
 }
 
