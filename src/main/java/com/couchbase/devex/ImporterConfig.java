@@ -15,15 +15,15 @@
  */
 package com.couchbase.devex;
 
-import rx.Observable;
-
 import com.couchbase.client.java.document.Document;
+
+import rx.Observable;
 
 /**
  * Created by ldoguin on 16/08/15.
  */
 public interface ImporterConfig {
 
-	Observable<Document> startImport();
+	Observable<Document> startImport() throws Exception;
 
 }

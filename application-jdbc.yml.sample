@@ -1,0 +1,31 @@
+spring.jpa.database=POSTGRESQL
+spring.datasource.platform=postgres
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.database.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://192.168.99.100:32778/dvdrental
+spring.datasource.username=postgres
+spring.datasource.password=password
+# Hostnames, comma separated list of Couchbase node IP or hostname
+hostnames: localhost,127.0.0.1
+# Buket name
+bucket: default
+# Bucket password
+password:
+# Log to write succesfully imported keys
+successLogFilename: succes.out
+# Log to write unsuccesfully imported keys
+errorLogFilename: error.out
+# Default RequestCancelledException delay in milliseconds and maximum number of retries
+requestCancelledExceptionDelay: 31000
+requestCancelledExceptionRetries: 100
+# Default TemporaryFailureException delay in milliseconds and maximum number of retries
+temporaryFailureExceptionDelay: 100
+temporaryFailureExceptionRetries: 100
+# Default upsert timeout in milliseconds
+importTimeout: 500
+# Choose between CSV, COUCHDB, JSON_GENERATOR
+choosenImporter: JDBC
+jdbc:
+  # id of the document containing your database schema to be imported 
+  tablesSchemaId: myDatabaseSchema

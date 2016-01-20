@@ -164,3 +164,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/.apt_generated/
